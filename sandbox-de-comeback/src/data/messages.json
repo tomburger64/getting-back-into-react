@@ -1,0 +1,18 @@
+[
+    {
+      "id": 1,
+      "text": "React is cool!",
+      "author": "Alice"
+    },
+    {
+      "id": 2,
+      "text": "Props and state are kinda neat.",
+      "author": "Bob"
+    },
+    {
+      "id": 3,
+      "text": "I'm just here for the Oreos.",
+      "author": "Chevallent"
+    }
+  ]
+  
