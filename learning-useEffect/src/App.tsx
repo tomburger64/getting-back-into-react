@@ -46,8 +46,22 @@ export default function App() {
 
 
 
-  // more complicated example
+  // more complicated example:
+  /*
+  * new state shows the browser width on initial render
+  * useEffect runs its code on mount, is an event listener
+  * eventlistener waits for a page width change (state value)
+  * state is set to an actualized value of the page width, and value is rendered in jsx
+  */
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
 
+  const handleResize = () => {
+    setWindowWidth(window.innerWidth)
+  }
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResize)
+  }, [])
 
   return (
     <>
@@ -62,6 +76,9 @@ export default function App() {
         <summary>json data (click to show / hide)</summary>
         {items.map(item => <pre key={Math.random()}>{JSON.stringify(item)}</pre>)}
       </details>
+
+      {/* ↓ more complicated example */}
+      <div>{windowWidth}</div>
     </>
   )
 }
