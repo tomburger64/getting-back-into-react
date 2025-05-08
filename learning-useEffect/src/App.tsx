@@ -63,6 +63,29 @@ export default function App() {
     window.addEventListener('resize', handleResize)
   }, [])
 
+
+
+  // "cleanup" concept (another example)
+  // using the previously used resourceType state
+
+  /**
+   * the return part is the "cleanup"
+   * 
+   * it's used to clear off the previous intervals, listeners, and things alike so they don't stack up whenever the useEffect would take action
+   * 
+   * for excample:
+   * if there was a console.log at every second at every on mount of something
+   * if there was no cleanup, there'd be several counts going on at the same time since the previous ones didn't get "cleaned"
+   */
+
+  useEffect(() => {
+    console.log('resource changed')
+
+    return () => {
+      console.log('return from resource change') // should remove the used eventlistener, interval, etc that was run, not console.log
+    }
+  }, [resourceType])
+
   return (
     <>
       <div>
