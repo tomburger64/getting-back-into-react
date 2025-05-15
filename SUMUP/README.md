@@ -1,3 +1,11 @@
+## For this "SUMUP" project, I plan on doing something kind of like cards to explain each concept I know in React, and along the way as I keep learning more
+
+## I'll show them through "real" examples (with each concept actually coded with its code shown, some sort of tutorial as I like to explain what I know) as that'll definitely help me memorize what I learn
+
+Also getting into tailwind as it's probably more popular and modern that Bootstrap
+
+- - - - -
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
