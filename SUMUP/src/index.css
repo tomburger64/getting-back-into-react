@@ -1,1 +1,5 @@
 @import "tailwindcss";
+
+.main-title{
+    font-family: "Exile", system-ui;
+}
