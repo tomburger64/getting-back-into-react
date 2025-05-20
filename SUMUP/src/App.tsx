@@ -21,13 +21,13 @@ export default function App() {
 
           {/* components */}
           <Welcome />
+          {/* add nav menu with anchor tags */}
 
           <hr className='border-white border-t-1 m-15' />
 
           <Components 
           title="1. Components"
           img={data.links[1]} />
-
 
           <hr className='border-white border-t-1 m-15' />
 
