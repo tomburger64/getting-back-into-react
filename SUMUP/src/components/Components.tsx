@@ -10,7 +10,7 @@ type Props = {
 export default function Components(props: Props) {
     return (
         <>
-            <h3 className="text-white text-3xl m-5">{props.title}</h3>
+            <h3 className="text-white text-3xl m-5" id='components'>{props.title}</h3>
             <img className="w-md max-w-10vw mx-auto" src={props.img} alt="" />
 
             <p className="text-white m-2 text-xl">Starting with the basics: Components.</p> <br />
@@ -19,7 +19,7 @@ export default function Components(props: Props) {
             They allow your code to be seperated in different files, for instance, a file for a header, another for a section, etc.</p>
 
             <p className="text-white m-2 text-xl">If you didn't use components, with Javascript only you’d need to call each html tag in JS using something like:</p>
-            <pre className="text-white m-5 text-xl whitespace-pre-wrap bg-gray-700">
+            <pre className="text-white m-5 text-xl whitespace-pre-wrap bg-gray-700 overflow-x-auto break-words">
                 <code className="w-full">
 {`document.getElementById("header-container").innerHTML = \`
     <header>
@@ -42,7 +42,7 @@ export default function Components(props: Props) {
             <img className="w-md max-w-10vw mx-auto" src={sameNameEx} alt="" />
 
             <p className="text-white m-2 text-xl">Then, you're gonna make it return empty angle brackets like so:</p>
-            <pre className="text-white m-5 text-xl whitespace-pre-wrap bg-gray-700"><code className="w-full">
+            <pre className="text-white m-5 text-xl whitespace-pre-wrap bg-gray-700 overflow-x-auto break-words"><code className="w-full">
                 function Example{"()"} {"{"} <br />
                     {"    <>"} <br />
                     {"    </>"} <br />
@@ -54,7 +54,7 @@ export default function Components(props: Props) {
                 So the "<code className="font-bold">{"<> </>"}</code>" is like a div parent, except if you want to add classes to it you're gonna replace it by an actual div / other tag.
             </p> <br />
             <p className="text-white m-2 text-xl">Let's take a final look before importing that code into the page:</p>
-            <pre className="text-white m-5 text-xl whitespace-pre-wrap bg-gray-700"><code className="w-full">
+            <pre className="text-white m-5 text-xl whitespace-pre-wrap bg-gray-700 overflow-x-auto break-words"><code className="w-full">
                 export default function Example{"()"} {"{"} <br />
                     {"    <>"} <br />
                     {"        "}{"<h1>Hello World!</h1>"} <br />
@@ -65,7 +65,7 @@ export default function Components(props: Props) {
             <p className="text-white m-2 text-xl">Also, to be fair, since their's only 1 tag here, there's no need to have the extra "<code className="font-bold">{"<></>"}</code>" parent tag.</p> <br />
 
             <p className="text-white m-2 text-xl">Final step, inside the App.jsx component, you'll be able to import the components you've exported, and call them in the JSX as if they were HTML tags, like so:</p>
-            <pre className="text-white m-5 text-xl whitespace-pre-wrap bg-gray-700"><code className="w-full">
+            <pre className="text-white m-5 text-xl whitespace-pre-wrap bg-gray-700 overflow-x-auto break-words"><code className="w-full">
                 import Example from './components/Example' <br /><br />
 
 export default function App{"()"} {"{"} <br />

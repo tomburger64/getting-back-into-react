@@ -9,6 +9,7 @@ import Components from './components/Components'
 import Props from './components/Props'
 import State from './components/UseState'
 import UseEffect from './components/UseEffect'
+import NavMenu from './components/NavMenu'
 
 export default function App() {
   return (
@@ -21,27 +22,27 @@ export default function App() {
 
           {/* components */}
           <Welcome />
-          {/* add nav menu with anchor tags */}
+          <NavMenu />
 
-          <hr className='border-white border-t-1 m-15' />
+          <hr className='border-white border-t-1 m-10' />
 
           <Components 
           title="1. Components"
           img={data.links[1]} />
 
-          <hr className='border-white border-t-1 m-15' />
+          <hr className='border-white border-t-1 m-10' />
 
           <Props 
           title="2. Props"
           img={data.links[2]} />
 
-          <hr className='border-white border-t-1 m-15' />
+          <hr className='border-white border-t-1 m-10' />
 
           <State 
           title="3. useState"
           img={data.links[3]} />
 
-          <hr className='border-white border-t-1 m-15' />
+          <hr className='border-white border-t-1 m-10' />
 
           <UseEffect 
           title="4. useEffect"
