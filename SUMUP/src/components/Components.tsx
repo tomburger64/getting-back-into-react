@@ -1,13 +1,20 @@
-export default function Components() {
+// trying to learn how to use ts some more ↓
+type Props = {
+    title: string;
+    img: string;
+}
+
+export default function Components(props: Props) {
     return (
         <>
-            <h3 className="text-white text-3xl m-5">1. Components</h3>
-            <p className="text-white m-2 text-lg">Starting with the base of the base: Components. <br />
+            <h3 className="text-white text-3xl m-5">{props.title}</h3>
+            <img className="w-md" src={props.img} alt="" />
 
-            Components are a simple way of grouping, or dividing HTML into several parts using Javascript. <br /><br />
+            <p className="text-white m-2 text-lg">Starting with the basics: Components.</p> <br />
+
+            <p>Components are a simple way of grouping / dividing HTML into several parts using Javascript.</p> <br /><br />
             
-            They allow you to have your code seperated across different file, like one for a header, another one for a section, etc.<br /></p>
-            {/* next, image? */}
+            <p>They allow you to have your code seperated across different files, for instance, a file for a header, another for a section, etc.</p>
         </>
     )
 }
