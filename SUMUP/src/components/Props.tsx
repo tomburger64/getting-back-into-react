@@ -1,6 +1,8 @@
 import genMockJson from '../assets/generate-mock-json.png'
 import dataFolder from '../assets/data-folder.png'
 
+import Menu from './props-example/Menu'
+
 type Props = {
     title: string;
     img: string;
@@ -26,6 +28,43 @@ export default function Props(props:Props) {
             <p className="text-white m-2 text-lg">Let's then add the file to our project, by making a <code className='font-bold'>data</code> folder inside the <code className='font-bold'>src</code> folder:</p> <br />
             <img className='w-wd' src={dataFolder} alt="" /> <br />
             <p className="text-white m-2 text-lg">Move the mock json file you downloaded inside, and we're ready to get into props.</p> <br />
+
+            <p className="text-white m-2 text-lg">Wherever you want to use data, you'll have to import your data. Now it shouldn't always happen in App.jsx, but in each component that needs it. But it turns out, you can just give it to a component and pass the data to each of its children components thanks to props. Don't panick if it sounds complicated, let me explain: <br />
+            You have to import data somewhere to start with. If that component has children (small components inside bigger components), the parent component (the bigger one) can just divide that data and give just what's necessary to each of its children components. There's less bloat and more performance this way ! </p><br />
+
+            <p className="text-white m-2 text-lg">Here's an example: </p><br />
+
+            <img className='w-md' src="https://miro.medium.com/v2/resize:fit:1400/1*RlU99ty6Yp3SpqSbG8Noxg.png" alt="" /> <br />
+            
+            <p className="text-white m-2 text-lg">In this example, if the Menu component wanted to share information about each pizza, like its price and ingredients, it wouldn't send all of the data to each children, right? <br />
+            It would send just the right data to each pizza Component, so that the pepperoni pizza has the pepperoni and other ingredients along with its price and etc, while also not having the data of the triple cheese pizza. Why would it have it after all? <br />
+            So the <code className='font-bold'>Menu</code> component from the image example, would give parts of the data to to each <code className='font-bold'>Pizza</code> component.</p> <br />
+
+            <p className="text-white m-2 text-lg">Just like components divide JSX into parts, props are like dividing data into parts too.</p> <br />
+            <p className="text-white m-2 text-lg">Let's do this with the pizza theme, so it's easier to follow along. First let's make a <code className='font-bold'>Menu</code> component while importing our Json file, and let's also make some <code className='font-bold'>Pizza</code> components. No need to make a header / footer, but you can do it to experiment yourself if you want.</p> <br />
+
+            <p className="text-white m-2 text-lg">Let's also add some basic JSX so that it actually looks like a menu to access each pizza.</p>
+
+            <p className="text-white m-2 text-lg italic font-bold">Menu component</p> <br />
+            <div className='bg-gray-700'>
+                <code className="block text-white m-5 text-xl whitespace-pre overflow-x-auto break-keep"> {/* ← thx chatgpt for the tailwind classes */}
+
+                    {`import data from './data/links.json'`} <br /><br />
+                    {`export default function Menu() {`} <br />
+                    {`    return (`} <br />
+                    {`        <>`} <br />
+                    {`            <ul className="flex flex-col w-46 gap-5">
+                <a href="#"><li className='w-full bg-blue-300 hover:bg-blue-200 p-3 rounded-lg text-center'>Pizza pepperoni</li></a>
+                <a href="#"><li className='w-full bg-blue-300 hover:bg-blue-200 p-3 rounded-lg text-center' >Pizza triple cheese</li></a>
+                <a href="#"><li className='w-full bg-blue-300 hover:bg-blue-200 p-3 rounded-lg text-center'>Pizza salmon & cream</li></a>
+            </ul>`} <br />
+                    {`        </>`} <br />
+                    {`    )`} <br />
+                    {`}`}
+                </code>
+            </div>
+
+            <Menu />
         </>
     )
 }
