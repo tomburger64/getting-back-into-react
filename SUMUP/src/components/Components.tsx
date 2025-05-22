@@ -44,21 +44,25 @@ export default function Components(props: Props) {
             <p className="text-white m-2 text-xl">Then, you're gonna make it return empty angle brackets like so:</p>
             <pre className="text-white m-5 text-xl whitespace-pre-wrap bg-gray-700 overflow-x-auto break-words"><code className="w-full">
                 function Example{"()"} {"{"} <br />
-                    {"    <>"} <br />
-                    {"    </>"} <br />
+                    {"    return("} <br />
+                    {"        <>"} <br />
+                    {"        </>"} <br />
+                    {"    )"} <br />
                 {"}"}
             </code></pre>
             <br />
-            <p className="text-white m-2 text-xl">Good job so far, then you'll simply have to add some HTML.
-                The one rule is there must always be a single parent tag, adding more will result in an error !
-                So the "<code className="font-bold">{"<> </>"}</code>" is like a div parent, except if you want to add classes to it you're gonna replace it by an actual div / other tag.
+            <p className="text-white m-2 text-xl">Then you'll simply have to add some HTML.
+                The one rule is that there must always be a single "main" parent tag, or you'll get an error.
+                So the "<code className="font-bold">{"<> </>"}</code>" is like a div parent, except if you want to add classes to it you're gonna replace it by an actual div / other tag (if you don't know how your tags will be structured, it's good practice to keep it as angled brackets)
             </p> <br />
             <p className="text-white m-2 text-xl">Let's take a final look before importing that code into the page:</p>
             <pre className="text-white m-5 text-xl whitespace-pre-wrap bg-gray-700 overflow-x-auto break-words"><code className="w-full">
                 export default function Example{"()"} {"{"} <br />
-                    {"    <>"} <br />
-                    {"        "}{"<h1>Hello World!</h1>"} <br />
-                    {"    </>"} <br />
+                    {"    return("} <br />
+                    {"        <>"} <br />
+                    {"            "}{"<h1>Hello World!</h1>"} <br />
+                    {"        </>"} <br />
+                    {"    )"} <br />
                 {"}"}
             </code></pre>
             <p className="text-white m-2 text-xl">Notice how you also need to export the function in order for it to be sent elsewhere, hence the "export default".</p>
