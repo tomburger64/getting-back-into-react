@@ -67,10 +67,6 @@ export default function Props(props:Props) {
                     {`}`}
                 </code>
             </div>
-
-            <div className="flex justify-center gap-100">
-                <Menu />
-            </div>
             
         </>
     )
