@@ -1,4 +1,4 @@
-import genMockJson from '../assets/generate-mock-json.png'
+import pizzaDataGen from '../assets/pizza-data-gen.png'
 import dataFolder from '../assets/data-folder.png'
 
 import Menu from './props-example/Menu'
@@ -9,6 +9,7 @@ type Props = {
 }
 
 export default function Props(props:Props) {
+
     return(
         <>
             <h3 className="text-white text-3xl m-5" id="props">{props.title}</h3>
@@ -19,11 +20,14 @@ export default function Props(props:Props) {
             <p className="text-white m-2 text-lg">In a webapp, you'd generally receive the data to the frontend as some json, after fetching it. If you're not too familiar with this, it's basically a data format so that files can contain data, in a Javascript Object format ("Javascript Object Notaion" → Json)</p> <br />
 
             <p className="text-white m-2 text-lg">Then what..? How do we even use that data? <br />
-            Let's practice by setting up some data, and that's why we'll use mock data from a Json file. <br />
-            <span className='italic'>PS: We could also do this from some API but it's simpler to do it like this if you're new to this.</span></p> <br />
+            Let's practice getting some mock data ready first. <br />
+            <span className='italic'>PS: We could also do this by calling some API but it's simpler to do it like this if you're new to this.</span></p> <br />
             
-            <p className="text-white m-2 text-lg">Let's head to <a href="https://mockaroo.com/" target="_blank"><u><code className='font-bold'>mockaroo.com</code></u></a>, change the format from CSV to Json and click on <code className='font-bold'>"generate data"</code>. </p>
-            <img className='w-md' src={genMockJson} alt="" /> <br />
+            <p className="text-white m-2 text-lg">You can head to <a href="https://mockaroo.com/" target="_blank"><u><code className='font-bold'>mockaroo.com</code></u></a> and copy the following settings (image below), or you can simply download the data file from my GitHub repo directly at (<code className='font-bold'>src {"<"} data {"<"} <span className='italic'>PIZZA_DATA.json</span></code>).</p>
+            
+            <a href="https://mockaroo.com/" target="_blank" className='inline-block'> {/*inline or link is clickable for whole width */}
+                <img className='w-md' src={pizzaDataGen} alt="" />
+            </a><br />
 
             <p className="text-white m-2 text-lg">Let's then add the file to our project, by making a <code className='font-bold'>data</code> folder inside the <code className='font-bold'>src</code> folder:</p> <br />
             <img className='w-wd' src={dataFolder} alt="" /> <br />
@@ -64,7 +68,10 @@ export default function Props(props:Props) {
                 </code>
             </div>
 
-            <Menu />
+            <div className="flex justify-center gap-100">
+                <Menu />
+            </div>
+            
         </>
     )
 }
