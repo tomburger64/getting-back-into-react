@@ -1,4 +1,3 @@
-import type { Key } from 'react'
 import pizzaData from '../../data/PIZZA_DATA.json'
 
 type Props = {
