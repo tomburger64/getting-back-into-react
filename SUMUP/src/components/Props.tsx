@@ -110,6 +110,29 @@ export default function Props(props:Props) {
 
             <p className='text-white m-2 text-lg'>Now that we're all set, the only thing left is the data. To get it, we'll select a few IDs from the Json file, and those are the pizzas that will be returned. Keep in mind the ID is always equal to the index <b>minus one</b> (to call the first pizza object that has the ID 1, its index is actually 0, as we substract 1).</p> <br />
 
+            <p className='text-white m-2 text-lg'>Let's start with importing our data into our component first ! You can name almost everything that you import however you want, but remember to keep it clear, in camelCase, and at the top of your code.</p>
+
+            <div className='bg-gray-700 m-2'>
+                <code className="block text-white m-5 text-xl whitespace-pre overflow-x-auto break-keep">
+
+                    import pizzaData from '../../data/PIZZA_DATA.json'
+
+                </code>
+            </div>
+
+            <p className='text-white m-2 text-lg'>Great ! Now, let's actually call in for the few IDs of the pizzas we want to have as "featured". To do that, inside the component of the menu (inside your App.jsx !), we'll need to skip a line and mark down the IDs the following way:</p> <br />
+
+            <div className='bg-gray-700 m-2'>
+                <code className="block text-white m-5 text-xl whitespace-pre overflow-x-auto break-keep">
+                    {`    <PropsMenu
+    featuredId1 = {0}
+    featuredId2 = {1}
+    featuredId3 = {5} />`}
+                </code>
+            </div>
+            {/* id of featured pizzas of the week ↓ */}
+            
+
             {/* id of featured pizzas of the week ↓ */}
             <PropsMenu
             featuredId1 = {0}
