@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import pizzaData from '../../data/PIZZA_DATA.json'
 
-export default function Menu() {
+export default function StateMenu() {
 
     const [pizza, setPizza] = useState({
         key: -1,

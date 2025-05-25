@@ -1,7 +1,7 @@
 import pizzaDataGen from '../assets/pizza-data-gen.png'
 import dataFolder from '../assets/data-folder.png'
 
-import Menu from './props-example/Menu'
+import PropsMenu from './props-example/PropsMenu'
 
 type Props = {
     title: string;
@@ -51,22 +51,17 @@ export default function Props(props:Props) {
 
             <p className="text-white m-2 text-lg italic font-bold">Menu component</p> <br />
             <div className='bg-gray-700'>
-                <code className="block text-white m-5 text-xl whitespace-pre overflow-x-auto break-keep"> {/* ← thx chatgpt for the tailwind classes */}
+                <code className="block text-white m-5 text-xl whitespace-pre overflow-x-auto break-keep">
 
-                    {`import data from './data/links.json'`} <br /><br />
-                    {`export default function Menu() {`} <br />
-                    {`    return (`} <br />
-                    {`        <>`} <br />
-                    {`            <ul className="flex flex-col w-46 gap-5">
-                <a href="#"><li className='w-full bg-blue-300 hover:bg-blue-200 p-3 rounded-lg text-center'>Pizza pepperoni</li></a>
-                <a href="#"><li className='w-full bg-blue-300 hover:bg-blue-200 p-3 rounded-lg text-center' >Pizza triple cheese</li></a>
-                <a href="#"><li className='w-full bg-blue-300 hover:bg-blue-200 p-3 rounded-lg text-center'>Pizza salmon & cream</li></a>
-            </ul>`} <br />
-                    {`        </>`} <br />
-                    {`    )`} <br />
-                    {`}`}
+                    do stuff here
                 </code>
             </div>
+
+            {/* id of featured pizzas of the week ↓ */}
+            <PropsMenu
+            featuredId1 = {0}
+            featuredId2 = {1}
+            featuredId3 = {5} />
             
         </>
     )
