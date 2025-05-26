@@ -31,15 +31,15 @@ export default function StateMenu() {
     function setSalmonNCream() {
         setPizza(prevState => ({
             ...prevState,
-            key: pizzaData[2].id,
-            pizza: pizzaData[2].pizza,
-            description: pizzaData[2].description,
-            price: pizzaData[2].price
+            key: pizzaData[5].id,
+            pizza: pizzaData[5].pizza,
+            description: pizzaData[5].description,
+            price: pizzaData[5].price
         }))
     }
 
     return (
-        <div className='w-full flex justify-center gap-10'>
+        <div className='w-full flex flex-col items-center justify-center gap-10 sm:flex-row'>
             <ul className="flex flex-col w-46 gap-5">
                 <button onClick={setPepperoni}><li className='w-full bg-blue-300 hover:bg-blue-200 p-3 rounded-lg text-center'>Pizza pepperoni</li></button>
                 <button onClick={setTripleCheese}><li className='w-full bg-blue-300 hover:bg-blue-200 p-3 rounded-lg text-center' >Pizza triple cheese</li></button>
