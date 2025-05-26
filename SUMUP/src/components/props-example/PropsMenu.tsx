@@ -12,8 +12,7 @@ type Props = {
 
 export default function PropsMenu(props: Props) {
 
-    // initially wanted to make an object for each pizza, mapping through the object which's id corresponds to the featuredid prop
-    // Apparently this is way better ↓, I kinda forgot how to deal with objects I guess 
+    // initially wanted to make an object for each pizza, mapping through the object which's id corresponds to the featuredid prop but doing this is simpler
     const featuredPizza1 = pizzaData[props.featuredId1]
     const featuredPizza2 = pizzaData[props.featuredId2]
     const featuredPizza3 = pizzaData[props.featuredId3]
