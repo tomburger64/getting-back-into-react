@@ -46,7 +46,7 @@ export default function StateMenu() {
                 <button onClick={setSalmonNCream}><li className='w-full bg-blue-300 hover:bg-blue-200 p-3 rounded-lg text-center'>Pizza salmon & cream</li></button>
             </ul>
 
-            <div className='flex flex-col text-center w-96'>
+            <div className='flex flex-col text-center max-w-96'>
                     <h1 className='font-bold text-xl text-white'>{pizza.pizza}</h1>
                         <div className='flex flex-col items-center justify-center border-5 rounded-lg p-5 m-2 border-white'>
                             
