@@ -19,15 +19,15 @@ export default function Props(props:Props) {
 
             <p className="text-white m-2 text-lg">Now, using Javascript doesn't mean you're gonna have all the data you want however you want off the bat. That's when <span className="italic font-bold">props</span> come in.</p> <br />
 
-            <p className="text-white m-2 text-lg">In a webapp, you'd generally receive the data to the frontend as some json, after fetching it. If you're not too familiar with this, it's basically a data format so that files can contain data, in a Javascript Object format ("Javascript Object Notaion" → Json)</p> <br />
+            <p className="text-white m-2 text-lg">In a webapp, you'd generally receive the data to the frontend as some "Json", after fetching / receiving it from the backend or somewhere else. If you're not too familiar with it, Json a data format that stores data, using the same structure as Javascript objects.</p> <br />
 
-            <p className="text-white m-2 text-lg">Then what..? How do we even use that data? <br />
-            Let's practice getting some mock data ready first. <br />
-            <span className='italic'>PS: We could also do this by calling some API but it's simpler to do it like this if you're new to this.</span></p> <br />
+            <p className="text-white m-2 text-lg">Then what..? How do we do anything with real data to start with? <br />
+            Let's get a Json file containing mock data first. <br />
+            <span className='italic'>PS: We could also approach this by calling an API but it's simpler to do it like this if you're new to this.</span></p> <br />
             
             <p className="text-white m-2 text-lg">You can head to <a href="https://mockaroo.com/" target="_blank"><u><code className='font-bold'>mockaroo.com</code></u></a> and copy the following settings (image below), or you can simply download <a href="https://github.com/tomburger64/getting-back-into-react/blob/master/SUMUP/src/data/PIZZA_DATA.json" target='_blank' className='underline font-bold'>the data file from my GitHub repo</a>.</p>
             
-            <a href="https://mockaroo.com/" target="_blank" id='MOCKUP-DATA-SETUP'> {/*inline or link is clickable for whole width */}
+            <a href="https://mockaroo.com/" target="_blank" id='MOCKUP-DATA-SETUP'>
                 <img className='w-xl mx-auto' src={pizzaDataGen} alt="" />
             </a><br />
 
@@ -42,7 +42,7 @@ export default function Props(props:Props) {
 
             <img className='w-md mx-auto' src="https://miro.medium.com/v2/resize:fit:1400/1*RlU99ty6Yp3SpqSbG8Noxg.png" alt="" /> <br />
             
-            <p className="text-white m-2 text-lg">In this example, if each pizza had information about its ingredients and such, the Menu component would receive the data, and split it accordingly to his children. This allows to not import ALL of the data to each child component. <br />
+            <p className="text-white m-2 text-lg">In this example, if each pizza to update its ingredients because of something added or modified, the Menu component would receive and pass on that info, to then give it to the concerned child component. This allows to not import ALL of the data to each child component. <br />
             This way, the pepperoni pizza has its ingredients along with its price and etc, while also not having the data of the triple cheese pizza. Why would it have it after all? <br />
             So the <code className='font-bold'>Menu</code> component from the image example, would give parts of the data to to each <code className='font-bold'>Pizza</code> component.</p> <br />
 
@@ -153,10 +153,14 @@ export default function Props(props:Props) {
             
 
             {/* id of featured pizzas of the week ↓ */}
-            <PropsMenu
+            {/* <PropsMenu
             featuredId1 = {0}
             featuredId2 = {1}
-            featuredId3 = {5} />
+            featuredId3 = {5} /> */}
+            <PropsMenu
+            featuredName1 = "Pepperoni"
+            featuredName2 = "Triple Cheese"
+            featuredName3 = "SalmonNCream" />
             
         </>
     )

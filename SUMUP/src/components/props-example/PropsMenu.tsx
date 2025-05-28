@@ -3,7 +3,10 @@ import pizzaData from '../../data/PIZZA_DATA.json'
 type Props = {
     featuredId1:number,
     featuredId2:number,
-    featuredId3:number
+    featuredId3:number,
+    featuredName1: string,
+    featuredName2: string,
+    featuredName3: string
 }
 
 // check for props id, get the info using the id in the json file, return the wanted title desc & price
@@ -13,9 +16,13 @@ type Props = {
 export default function PropsMenu(props: Props) {
 
     // initially wanted to make an object for each pizza, mapping through the object which's id corresponds to the featuredid prop but doing this is simpler
-    const featuredPizza1 = pizzaData[props.featuredId1]
-    const featuredPizza2 = pizzaData[props.featuredId2]
-    const featuredPizza3 = pizzaData[props.featuredId3]
+    // const featuredPizza1 = pizzaData[props.featuredId1]
+    // const featuredPizza2 = pizzaData[props.featuredId2]
+    // const featuredPizza3 = pizzaData[props.featuredId3]
+
+    // CHANGE OF PLANS, instead of searching by id, must enter the exact name of the pizza (trying to make the usage of props more meaningful to a beginner)
+    // so .find() through the Json, returning the first pizza that has the exact name
+    
 
     return(
         <>
