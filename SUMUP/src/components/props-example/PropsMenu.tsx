@@ -8,6 +8,11 @@ type Props = {
     featuredName2: string,
     featuredName3: string
 }
+type featuredP = {
+    pizza: string,
+    description: string,
+    price: number
+} 
 
 // check for props id, get the info using the id in the json file, return the wanted title desc & price
 
@@ -22,9 +27,9 @@ export default function PropsMenu(props: Props) {
 
     // CHANGE OF PLANS, instead of searching by id, must enter the exact name of the pizza (trying to make the usage of props more meaningful to a beginner)
     // so .find() through the Json, returning the first pizza that has the exact name
-    const featuredP1 = pizzaData.find(name => name.pizza === props.featuredName1)
-    const featuredP2 = pizzaData.find(name => name.pizza === props.featuredName2)
-    const featuredP3 = pizzaData.find(name => name.pizza === props.featuredName3)
+    const featuredP1: featuredP | undefined = pizzaData.find(name => name.pizza === props.featuredName1)
+    const featuredP2: featuredP | undefined = pizzaData.find(name => name.pizza === props.featuredName2)
+    const featuredP3: featuredP | undefined = pizzaData.find(name => name.pizza === props.featuredName3)
     
 
     return(
@@ -36,26 +41,48 @@ export default function PropsMenu(props: Props) {
 
                 {/* featured pizza 1 */}
                 <ul className="bg-blue-200 p-5 rounded-lg w-60 flex flex-col">
-                    <li className='text-lg font-bold text-center'>{featuredP1.pizza}</li> <br />
-                    <li className='text-center'>{featuredP1.description}</li>
-                    <hr className='w-36 mx-auto mt-auto' /> <br />
-                    <li className='text-center font-bold'>{featuredP1.price}€</li>
+                    {/* if featured pizza 1 has a name match, displays */}
+                    {featuredP1 ? (
+                        <>
+                            <li className='text-lg font-bold text-center'>{featuredP1.pizza}</li> <br />
+                            <li className='text-center'>{featuredP1.description}</li>
+                            <hr className='w-36 mx-auto mt-auto' /> <br />
+                            <li className='text-center font-bold'>{featuredP1.price}€</li>
+                        </>
+                    ) : (<p className='text-red-500'>Error: sorry for the inconvenience ! <br />
+                    <span className='italic'>featuredP1 does not match</span></p>)
+                    }
                 </ul>
 
                 {/* featured pizza 2 */}
                 <ul className="bg-blue-200 p-5 rounded-lg w-60 flex flex-col">
-                    <li className='text-lg font-bold text-center'>{featuredP2.pizza}</li> <br />
-                    <li className='text-center'>{featuredP2.description}</li> <br />
-                    <hr className='w-36 mx-auto mt-auto' /> <br />
-                    <li className='text-center font-bold'>{featuredP2.price}€</li>
+                    {featuredP2 ? (
+                        <>
+                            <li className='text-lg font-bold text-center'>{featuredP2.pizza}</li> <br />
+                            <li className='text-center'>{featuredP2.description}</li>
+                            <hr className='w-36 mx-auto mt-auto' /> <br />
+                            <li className='text-center font-bold'>{featuredP2.price}€</li>
+                        </>
+                    ) : (
+                        <p className='text-red-500'>Error: sorry for the inconvenience ! <br />
+                    <span className='italic'>featuredP2 does not match</span></p>)
+                    }
+                    
                 </ul>
 
                 {/* featured pizza 3 */}
                 <ul className="bg-blue-200 p-5 rounded-lg w-60">
-                    <li className='text-lg font-bold text-center'>{featuredP3.pizza}</li> <br />
-                    <li className='text-center'>{featuredP3.description}</li> <br />
-                    <hr className='w-36 mx-auto mt-auto' /> <br />
-                    <li className='text-center font-bold'>{featuredP3.price}€</li>
+                    {featuredP3 ? (
+                        <>
+                            <li className='text-lg font-bold text-center'>{featuredP3.pizza}</li> <br />
+                            <li className='text-center'>{featuredP3.description}</li> <br />
+                            <hr className='w-36 mx-auto mt-auto' /> <br />
+                            <li className='text-center font-bold'>{featuredP3.price}€</li>
+                        </>
+                    ) : (
+                        <p className='text-red-500'>Error: sorry for the inconvenience ! <br />
+                    <span className='italic'>featuredP3 does not match</span></p>)}
+                    
                 </ul>
 
             </div>
