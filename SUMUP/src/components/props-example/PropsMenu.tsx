@@ -1,9 +1,6 @@
 import pizzaData from '../../data/PIZZA_DATA.json'
 
 type Props = {
-    featuredId1:number,
-    featuredId2:number,
-    featuredId3:number,
     featuredName1: string,
     featuredName2: string,
     featuredName3: string
@@ -41,7 +38,7 @@ export default function PropsMenu(props: Props) {
 
                 {/* featured pizza 1 */}
                 <ul className="bg-blue-200 p-5 rounded-lg w-60 flex flex-col">
-                    {/* if featured pizza 1 has a name match, displays */}
+                    {/* if featured pizza 1/2/3 has a name match, displays */}
                     {featuredP1 ? (
                         <>
                             <li className='text-lg font-bold text-center'>{featuredP1.pizza}</li> <br />
@@ -49,6 +46,7 @@ export default function PropsMenu(props: Props) {
                             <hr className='w-36 mx-auto mt-auto' /> <br />
                             <li className='text-center font-bold'>{featuredP1.price}€</li>
                         </>
+                        // otherwise, displays this ↓
                     ) : (<p className='text-red-500'>Error: sorry for the inconvenience ! <br />
                     <span className='italic'>featuredP1 does not match</span></p>)
                     }
