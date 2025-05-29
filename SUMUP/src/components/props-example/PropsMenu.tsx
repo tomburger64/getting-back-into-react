@@ -47,7 +47,7 @@ export default function PropsMenu(props: Props) {
                             <li className='text-center font-bold'>{featuredP1.price}€</li>
                         </>
                         // otherwise, displays this ↓
-                    ) : (<p className='text-red-500'>Error: sorry for the inconvenience ! <br />
+                    ) : (<p className='text-red-500 text-center'>Error: sorry for the inconvenience! <br />
                     <span className='italic'>featuredP1 does not match</span></p>)
                     }
                 </ul>
@@ -62,7 +62,7 @@ export default function PropsMenu(props: Props) {
                             <li className='text-center font-bold'>{featuredP2.price}€</li>
                         </>
                     ) : (
-                        <p className='text-red-500'>Error: sorry for the inconvenience ! <br />
+                        <p className='text-red-500'>Error: sorry for the inconvenience! <br />
                     <span className='italic'>featuredP2 does not match</span></p>)
                     }
                     
@@ -78,7 +78,7 @@ export default function PropsMenu(props: Props) {
                             <li className='text-center font-bold'>{featuredP3.price}€</li>
                         </>
                     ) : (
-                        <p className='text-red-500'>Error: sorry for the inconvenience ! <br />
+                        <p className='text-red-500'>Error: sorry for the inconvenience! <br />
                     <span className='italic'>featuredP3 does not match</span></p>)}
                     
                 </ul>

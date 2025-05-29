@@ -49,23 +49,23 @@ export default function Props(props:Props) {
             <p className="text-white m-2 text-lg">Just like components divide JSX into parts, props are like dividing data into parts.</p> <br />
             <p className="text-white m-2 text-lg">Let's practice this while keeping the pizza theme. We'll use mock data from a file, import a few pizzas to be in a "featured pizzas" section so their information is displayed. As if we were making some pizzeria's home page!</p><br />
 
+            <p className="text-white m-2 text-lg italic font-bold">Please do not pay attention to the CSS as the aim of this website is to focus on React concepts (looks don't matter). <br />
+            Tailwind is used, but you don't even really have to do any CSS, it's about making stuff work.</p> <br />
+
             <p className="text-white m-2 text-lg">First let's make a simple <code className='font-bold'>Menu</code> component, which will receive some props. <br />
-            Those props will contain the IDs of each "featured pizza" we choose, which will correspond to the pizza bojects with those IDs, and display their data accordingly (aka name, price, etc)</p> <br />
+            Those props will contain the names of each pizza we want to set as one of the "featured pizzas", so if we ever want to change a pizza to another, we just have to write its name, and our code will get the right data to display.</p> <br />
+            
+            <p className='text-white m-2 text-lg'>Here's one of the most important things when it comes to dealing with data on anything related to the frontend: <b className='text-xl'>where the data will be used and how. If you know where and what will be used, you'll code at least twice as fast.</b> <br />
+            Will it be static? Will it change when something is clicked? Etc...</p> <br />
 
-            <p className="text-white m-2 text-lg italic font-bold">Please note that CSS doesn't matter as the point is to deal with data through props (looks don't matter). This example, just like the other ones, uses Tailwind CSS, which is fine to not understand as it's not the aim of this guide.</p> <br />
+            
 
-            <p className='text-white m-2 text-lg'>Here's one of the most important things when it'll come to dealing with data with React: <b className='text-xl'>where the data will be used and how.</b> <br />
-            Will it be static? Will it change when something is clicked? Etc...</p>
-
-            <p className='text-white m-2 text-lg'>If we take a look at our Json file, we can see every object has an <code className='font-bold'>"id"</code>, <code className='font-bold'>"pizza"</code>, <code className='font-bold'>"description"</code> and <code className='font-bold'>"price"</code> field, so we know what type of info we're getting:</p> <br />
+            <p className='text-white m-2 text-lg'>If we take a look at our Json file, we can see every object has an <code className='font-bold'>"id"</code>, <code className='font-bold'>"pizza"</code>, <code className='font-bold'>"description"</code> and <code className='font-bold'>"price"</code> field, so we know what type of info we're getting: <span className='font-bold'>a number, two strings, and another number</span>.</p> <br />
 
             <img className='w-md mx-auto' src={dataFields} alt="" />
             <figcaption className='italic text-center text-sm text-white'>If you setup the data file like in <a href="#MOCKUP-DATA-SETUP" className='underline text-blue-200'>the example</a>, it should contain these fields</figcaption> <br />
 
-            <p className='text-white m-2 text-lg'>Now, all we have to do is ready the data placeholders (JSX tags) for the data we're going to display. That means we don't care about IDs, but we do care about the pizza name, description and price!</p> <br />
-
-            <p className='text-white m-2 text-lg'>One last thing, considering how much data we got: we'll call only a few pizzas, as no one cares about a whole <b>1000</b> featured pizzas, right? So no worries on making a lot of placeholders, we'll only do a few.</p>
-            <p className='text-white m-2 text-lg italic font-bold'>Note that you can actually make loops to render big amounts of components though !</p> <br />
+            <p className='text-white m-2 text-lg'>Now, all we have to do is ready the data placeholders (JSX tags) for the data we're going to display. That means we don't care about IDs, but we do care about the pizza name, description and price! Let's make a few as we only want a few displayed.</p> <br />
 
             <p className="text-white m-2 text-lg italic font-bold">Menu component</p> <br />
             <div className='bg-gray-700 m-2'>
@@ -110,9 +110,10 @@ export default function Props(props:Props) {
                 </code>
             </div>
 
-            <p className='text-white m-2 text-lg'>Now that we're all set with the JSX, the only thing left is the data. To get it, let's choose a few pizzas' IDs from the Json file, which will be the ones displayed.</p> <br />
+            <p className='text-white m-2 text-lg'>Now that we're all set with the JSX, the only thing left is the data. To get it, let's choose a few pizzas' names from the Json file, which will be the ones displayed. <br />
+            Now, the names are kind of random in the Json file and don't really match those of pizzas. If you mind, feel free to change a few. They don't have to be in order nor next to each other. Just don't write something too lengthy.</p> <br />
 
-            <p className='text-white m-2 text-lg'>Let's start with importing our data into our component first ! You can name almost everything that you import however you want, but remember to keep it clear, in camelCase, and at the top of your code.</p>
+            <p className='text-white m-2 text-lg'>Let's start with importing our data into our component first! You can name almost everything that you import however you want in React, but remember to keep it clear, in camelCase (unless it's a component), and at the top of your code.</p>
 
             <div className='bg-gray-700 m-2'>
                 <code className="block text-white m-5 text-xl whitespace-pre overflow-x-auto break-keep">
@@ -122,24 +123,26 @@ export default function Props(props:Props) {
                 </code>
             </div>
 
-            <p className='text-white m-2 text-lg'>Great ! Now, let's actually call in for the few IDs of the pizzas we want to have as "featured". To do that, inside the component of the menu (inside your App.jsx !), we'll need to skip a line and mark down the IDs the following way:</p> <br />
+            <p className='text-white m-2 text-lg'>Great ! Now, let's actually call in for the pizzas we want to have as "featured". To do that, inside your App.jsx, we'll need to skip a line and mark down the pizzas' names the following way:</p> <br />
 
             <div className='bg-gray-700 m-2'>
                 <code className="block text-white m-5 text-xl whitespace-pre overflow-x-auto break-keep">
                     {`    {/* ids of the featured pizzas of the week ↓ */}
     <PropsMenu
-    featuredId1 = {0}
-    featuredId2 = {1}
-    featuredId3 = {5} />`}
+    featuredP1 = "Pepperoni"
+    featuredP2 = "Triple Cheese"
+    featuredP3 = "Salmon Cream" />`}
                 </code>
             </div>
-
-            <p className='text-white m-2 text-lg'>Writing what almost looks like parameters without parentheses like we just did is the syntax to write props. It looks like the syntax of an object, doesn't it? Except it requires '=' instead of ':' and doesn't need commas at the end of each line. <br />
-            Also, notice how you need to write " {"{ }"} " to specify non-string values (numbers, booleans, etc), as that's the simplicity of React: it's just Javascript ! </p> <br />
-
-            <p className='text-white m-2 text-lg'>Now, how do we deal with the props from inside our <code className='font-bold'>Menu</code> component?</p> <br />
+            <p className='text-white m-2 text-lg italic font-bold'>Please make sure the names you write are inside the Json data file or it WON'T WORK !</p>
             
-            <p className='text-white m-2 text-lg'>Let's first add the "<code className='font-bold'>props</code>" parameter inside our component, like so:</p> <br />
+
+            <p className='text-white m-2 text-lg'>Now that we have props for 3 "featuredP" (featured pizzas), please take a look at the syntax. It looks like an object, doesn't it? Except it requires '=' instead of ':' and doesn't need commas at the end of each line. <br />
+            Note that you need to write " {"{ }"} " to specify non-string values (numbers, booleans, etc), just like you would in JSX to write Javascript. </p> <br />
+
+            <p className='text-white m-2 text-lg'>Now, what can we do with the props we just wrote inside our <code className='font-bold'>Menu</code> component?</p> <br />
+            
+            <p className='text-white m-2 text-lg'>Let's first add a parameter inside our component. This is the "magic" thing that will allow to use the props we wrote, and guess what : it's good practice to call that parameter <code className='font-bold'>props</code> like so:</p> <br />
 
             <div className='bg-gray-700 m-2'>
                 <code className="block text-white m-5 text-xl whitespace-pre overflow-x-auto break-keep">
@@ -147,20 +150,45 @@ export default function Props(props:Props) {
                 </code>
             </div>
 
-            <p className='text-white m-2 text-lg'>Adding this will allow our component to read what we wrote as props earlier, kind of like the temporary variable you use when using the .map() function, so it can deal with whatever array it's dealing with.</p> <br />
+            <p className='text-white m-2 text-lg'>Now, let's do a bit of thinking and learning. <br />
+            We need to link the <code className='font-bold'>featuredP</code> props to get the right objects from our <code className='font-bold'>Json</code> data. <br />
+            Like we said earlier, the "magic" thing that will allow to link the props we wrote in our <code className='font-bold'>App.jsx</code> is the <code className='font-bold'>props</code> parameter we wrote in our <code className='font-bold'>Menu</code> component.</p> <br />
 
-            <p className='text-white m-2 text-lg'>Now, let's do a bit of thinking. We need to link the ID props we chose to our actual data. We can do this in native Javascript, right above our <code className='font-bold'>return</code> statement in our <code className='font-bold'>Menu</code> function.</p>
+            <p className='text-white m-2 text-lg'>We can do a quick test, but I'll need to give you a hint first. <br />
+            If you actually did some DOM practice with Javascript, you should know that to access <code className='font-bold'>arrays []</code> and <code className='font-bold'>objects {"{}"}</code>, you need to do something in particular.</p> <br />
+
+            <p className='text-white m-2 text-lg'>To call for array elements, you do: </p>
+            <div className='bg-gray-700 m-2'>
+                <code className="block text-white m-5 text-xl whitespace-pre overflow-x-auto break-keep">
+                    console.log(array[0])
+                </code>
+            </div>
+            <p className='text-white m-2 text-lg'>which returns the first element of the array.</p> <br />
+
+            <p className='text-white m-2 text-lg'>As for objects, you have to do this:</p>
+            <div className='bg-gray-700 m-2'>
+                <code className="block text-white m-5 text-xl whitespace-pre overflow-x-auto break-keep">
+                    console.log(object.property)
+                </code>
+            </div>
+            <p className='text-white m-2 text-lg'>Which returns a property of the object.</p> <br />
+
+            <p className='text-white m-2 text-lg'>Now, we have both in our <code>Json</code> data (an array containing objects), so how would we do that? <br />
+            This way:</p>
+            <div className='bg-gray-700 m-2'>
+                <code className="block text-white m-5 text-xl whitespace-pre overflow-x-auto break-keep">
+                    console.log(array[0].poperty)
+                </code>
+            </div>
+            <p className='text-white m-2 text-lg'>Basically, we ask for the first element of the array (aka the first object), and we then call the wanted property.</p>
             
-
-            {/* id of featured pizzas of the week ↓ */}
-            {/* <PropsMenu
-            featuredId1 = {0}
-            featuredId2 = {1}
-            featuredId3 = {5} /> */}
+            <br /><br /><br /><br /><br /><br /><p className='text-white m-2 text-lg'>let's see if our IDE's autocomplete shows us anything when we write <code className='font-bold'>props</code> inside curly brackets (" <code className='font-bold'>{"{ }"}</code> ").</p>
+            
+            {/* name of the featured pizzas have to correspond to those of the data */}
             <PropsMenu
             featuredName1 = "Pepperoni"
             featuredName2 = "Triple Cheese"
-            featuredName3 = "SalmonNCream" />
+            featuredName3 = "Salmon Cream" />
             
         </>
     )
