@@ -34,9 +34,9 @@ export default function App() {
 
           <Props 
           title="2. Props"
-          img={data.links[2]} />
+          img={data.links[2]} /> {/* probably add conditionnal rendering after props ↓, but it's not really React directly */}
 
-          <hr className='border-white border-t-1 m-10' />
+          <hr className='border-white border-t-1 m-10' /> 
 
           <State 
           title="3. useState"
