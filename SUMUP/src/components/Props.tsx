@@ -180,9 +180,52 @@ export default function Props(props:Props) {
                     console.log(array[0].poperty)
                 </code>
             </div>
-            <p className='text-white m-2 text-lg'>Basically, we ask for the first element of the array (aka the first object), and we then call the wanted property.</p>
+            <p className='text-white m-2 text-lg'>Basically, we ask for the first element of the array (aka the first object), and we then call the wanted property.</p> <br />
+
+            {/* note to self: stop doing spans with font-bold, just do b tags */}
+            <p className='text-white m-2 text-lg'>So, to call for a specific pizza, we can do this <b>inside the <code>Menu</code> component</b> as it has the <code className='bold'>Json</code> data imported:</p>
+            <div className='bg-gray-700 m-2'>
+                <code className="block text-white m-5 text-xl whitespace-pre overflow-x-auto break-keep">
+                    console.log(pizzaData[0].pizza)
+                </code>
+            </div>
+
+            <p className='text-white m-2 text-lg'>This logs the first pizza object's name property inside of the <code className='font-bold'>pizzaData</code> array. <br /> <i>Make sure doing a "basic" call like this works properly!</i></p> <br />
+
+            <p className='text-white m-2 text-lg'>Now all that's left is calling it not with the index, but the pizza's actual name. To do that, just like whenever you need to find any function if you never went there yet, head to the <a className='underline text-blue-200' href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank"> official Mozilla JS Docs ("MDN")</a> and use the searchbar to find what you're looking for. (You can also of course just google som!ething like "MDN JS function that does *<i>something</i>*...</p> <br />
+
+            <p className='text-white m-2 text-lg'>The logic for what we're trying to do would probably correspond the most with the <code className='font-bold'>.find()</code> function. (<a className='underline text-blue-200' href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find" target="_blank">link</a>)</p> <br />
+
+            <p className='text-white m-2 text-lg'>It basically allows to find specific array elements by looking for something specific. <br />
+            So we're going to use that, and set that specific thing as the pizza name we're looking for.</p> <br />
+
+            <p className='text-white m-2 text-lg'>Let's make 3 variables in our <code className='font-bold'>Menu</code> compmonent, for each of our 3 featured pizzas. <br />
+            From there on, we can set their value for something similar like we did to practice calling specific pizza names from our <code className='font-bold'>Json</code>, but use the <code className='font-bold'>.find()</code> function to pass the one specific thing we're looking for: <b>the pizza's name.</b> <br />
+            I recommend you give it a try before looking at the solution down below, as this has <b className='underline'> a lot of learning value</b>.</p> <br />
+
+            <p className='text-white m-2 text-lg'>Here's the solution !</p>
+            <div className='bg-gray-700 m-2'>
+                <code className="block text-white m-5 text-xl whitespace-pre overflow-x-auto break-keep">
+                    const featuredP1 = pizzaData.find(name ={">"} name.pizza === props.featuredName1) <br />
+                    const featuredP2 = pizzaData.find(name ={">"} name.pizza === props.featuredName1) <br />
+                    const featuredP3 = pizzaData.find(name ={">"} name.pizza === props.featuredName1)
+                </code>
+            </div>
+
+            <p className='text-white m-2 text-lg'>If you're unsure about understanding what this does, here's some explaining:</p> <br />
+            <p className='text-white m-2 text-lg'>Each featuredP variable is set to the value of the <code className='font-bold'>pizzaData array</code> which is being applied the <code className='font-bold'>.find()</code> function. <br />
+            <code className='font-bold'>find (something) in the pizzaData array !</code></p> <br />
+
+            <p className='text-white m-2 text-lg'>Then, what the <code className='font-bold'>.find()</code> function looks for is a name property in each object of the <code className='font-bold'>pizzaData array</code> that matches the one set <b>in the prop</b> (in your App.jsx).</p> <br />
+
+            <p className='text-white m-2 text-lg'>More precisely, an arrow function is set, using the temporary variable "<code className='font-bold'>name</code>", that's basically going through every <code className='font-bold'>pizzaData</code> <b>array element</b> (so all objects). As it goes through, it looks for every <code className='font-bold'>.pizza</code> property of each object, and checks to see if it matches the <b>prop</b>. <br /> </p>
+            <p className='text-white m-2 text-lg'><i>Important to note that the <code className='font-bold'>.find()</code> function stops going through the array as soon as it finds a match. So having a few matches only means it'll stop at the "earliest" one, aka the one with the smallest index!</i></p> <br />
+
+            <p className='text-white m-2 text-lg'>Congrats on reaching this far, because all that's left to do now is to show our data in <code>Menu</code>'s JSX!</p> <br />
+
             
-            <br /><br /><br /><br /><br /><br /><p className='text-white m-2 text-lg'>let's see if our IDE's autocomplete shows us anything when we write <code className='font-bold'>props</code> inside curly brackets (" <code className='font-bold'>{"{ }"}</code> ").</p>
+            
+            <br /><br /><br /><br /><br /><br />
             
             {/* name of the featured pizzas have to correspond to those of the data */}
             <PropsMenu
