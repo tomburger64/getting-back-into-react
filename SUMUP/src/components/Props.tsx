@@ -223,15 +223,46 @@ export default function Props(props:Props) {
 
             <p className='text-white m-2 text-lg'>Congrats on reaching this far, because all that's left to do now is to show our data in <code>Menu</code>'s JSX!</p> <br />
 
-            
-            
-            <br /><br /><br /><br /><br /><br />
+            <p className='text-white m-2 text-lg'>This is the easiest part if you remember about the magic curly brackets (<b>"{" { } "}"</b>). Let's replace our <code>{"<"}li{">"}</code> tags' content with the actual data!</p> <br />
+
+            <div className='bg-gray-700 m-2'>
+                <code className="block text-white m-5 text-xl whitespace-pre overflow-x-auto break-keep">
+                {"{/* featured pizza 1 */}"} <br />
+                {'<ul className="bg-blue-200 p-5 rounded-lg w-60 flex flex-col">'} <br />
+                    {"    <li className='text-lg font-bold text-center'>{featuredP1.pizza}</li> <br />"} <br />
+                    {"    <li className='text-center'>{featuredP1.description}</li>"} <br />
+                    {"    <hr className='w-36 mx-auto mt-auto' /> <br />"} <br />
+                    {"    <li className='text-center font-bold'>{featuredP1.price}</li>"} <br />
+                {"</ul>"} <br /><br />
+
+                {"{/* featured pizza 2 */}"} <br />
+                {'<ul className="bg-blue-200 p-5 rounded-lg w-60 flex flex-col">'} <br />
+                    {"    <li className='text-lg font-bold text-center'>{featuredP2.pizza}</li> <br />"} <br />
+                    {"    <li className='text-center'>{featuredP2.description}</li> <br />"} <br />
+                    {"    <hr className='w-36 mx-auto mt-auto' /> <br />"} <br />
+                    {"    <li className='text-center font-bold'>{featuredP2.price}</li>"} <br />
+                {"</ul>"} <br /> <br />
+
+                {"{/* featured pizza 3 */}"} <br />
+                {'<ul className="bg-blue-200 p-5 rounded-lg w-60">'} <br />
+                    {"    <li className='text-lg font-bold text-center'>{featuredP3.pizza}</li> <br />"} <br />
+                    {"    <li className='text-center'>{featuredP3.description}</li> <br />"} <br />
+                    {"    <hr className='w-36 mx-auto mt-auto' /> <br />"} <br />
+                    {"    <li className='text-center font-bold'>{featuredP3.price}</li>"} <br />
+                {"</ul>"} <br />
+                </code>
+            </div> <br />
+
+            <p className='text-white m-2 text-lg'>Annnd... Done ! There you have it, you have wroking <code className='font-bold'>props</code>! <br />
+            Here's the the final result:</p><br />
             
             {/* name of the featured pizzas have to correspond to those of the data */}
             <PropsMenu
             featuredName1 = "Pepperoni"
             featuredName2 = "Triple Cheese"
             featuredName3 = "Salmon Cream" />
+
+            <p className='text-white m-2 text-lg font-bold'>Congrats!</p>
             
         </>
     )
