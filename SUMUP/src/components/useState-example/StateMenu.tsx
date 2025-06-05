@@ -48,12 +48,12 @@ export default function StateMenu() {
 
             <div className='flex flex-col text-center max-w-96'>
                     <h1 className='font-bold text-xl text-white'>{pizza.pizza}</h1>
-                        <div className='flex flex-col items-center justify-center border-5 rounded-lg p-5 m-2 border-white'>
+                    <div className='flex flex-col items-center justify-center border-5 rounded-lg p-5 m-2 border-white'>
                             
-                            <p className='text-white'>{pizza.description}</p>
-                            <hr className='w-46 border-white m-2' />
-                            <p className='text-white italic font-bold'>{pizza.price}€</p>
-                        </div>
+                        <p className='text-white'>{pizza.description}</p>
+                        <hr className='w-46 border-white m-2' />
+                        <p className='text-white italic font-bold'>{pizza.price}€</p>
+                    </div>
             </div>
         </div>
     )
