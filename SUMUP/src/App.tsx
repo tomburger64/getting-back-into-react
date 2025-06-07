@@ -11,6 +11,13 @@ import Props from './components/Props'
 import State from './components/UseState'
 import UseEffect from './components/UseEffect'
 
+// todo:
+/**
+ * don't show all concepts at once, make NavMenu work with useState
+ * useEffect
+ * useRef?
+ * idk I'll google it or ask AI for what'd be the most useful to learn
+ */
 
 export default function App() {
   return (
@@ -22,7 +29,7 @@ export default function App() {
         <div className='container'>
 
           {/* back to the top button */}
-          <a className='bg-gray-500 w-15 aspect-square rounded-3xl fixed bottom-0 right-0 m-2 text-3xl flex items-center justify-center' href='#top'>↑</a>
+          <a className='bg-gray-500 w-15 aspect-square rounded-3xl fixed bottom-0 right-0 m-5 text-3xl flex items-center justify-center' href='#top'>↑</a>
 
           {/* components */}
           <Welcome />
