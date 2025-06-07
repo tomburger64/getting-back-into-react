@@ -5,20 +5,24 @@ import data from './data/links.json'
 
 // components
 import Welcome from './components/Welcome'
+import NavMenu from './components/NavMenu'
 import Components from './components/Components'
 import Props from './components/Props'
 import State from './components/UseState'
 import UseEffect from './components/UseEffect'
-import NavMenu from './components/NavMenu'
+
 
 export default function App() {
   return (
     <>
       {/* page bg */}
-      <div className='bg-gray-600 w-full min-h-screen flex justify-center'>
+      <div className='bg-gray-600 w-full min-h-screen flex justify-center' id='top'>
 
         {/* page container */}
         <div className='container'>
+
+          {/* back to the top button */}
+          <a className='bg-gray-500 w-15 aspect-square rounded-3xl fixed bottom-0 right-0 m-2 text-3xl flex items-center justify-center' href='#top'>↑</a>
 
           {/* components */}
           <Welcome />
