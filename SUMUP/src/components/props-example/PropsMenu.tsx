@@ -41,7 +41,7 @@ export default function PropsMenu(props: Props) {
                     {/* if featured pizza 1/2/3 has a name match, displays */}
                     {featuredP1 ? (
                         <>
-                            <li className='text-lg font-bold text-center'>{featuredP1.pizza}</li> <br />
+                            <li className='text-xl font-bold text-center'>{featuredP1.pizza}</li> <br />
                             <li className='text-center'>{featuredP1.description}</li>
                             <hr className='w-36 mx-auto mt-auto' /> <br />
                             <li className='text-center font-bold'>{featuredP1.price}€</li>
@@ -56,7 +56,7 @@ export default function PropsMenu(props: Props) {
                 <ul className="bg-blue-200 p-5 rounded-lg w-60 flex flex-col">
                     {featuredP2 ? (
                         <>
-                            <li className='text-lg font-bold text-center'>{featuredP2.pizza}</li> <br />
+                            <li className='text-xl font-bold text-center'>{featuredP2.pizza}</li> <br />
                             <li className='text-center'>{featuredP2.description}</li>
                             <hr className='w-36 mx-auto mt-auto' /> <br />
                             <li className='text-center font-bold'>{featuredP2.price}€</li>
@@ -72,7 +72,7 @@ export default function PropsMenu(props: Props) {
                 <ul className="bg-blue-200 p-5 rounded-lg w-60">
                     {featuredP3 ? (
                         <>
-                            <li className='text-lg font-bold text-center'>{featuredP3.pizza}</li> <br />
+                            <li className='text-xl font-bold text-center'>{featuredP3.pizza}</li> <br />
                             <li className='text-center'>{featuredP3.description}</li> <br />
                             <hr className='w-36 mx-auto mt-auto' /> <br />
                             <li className='text-center font-bold'>{featuredP3.price}€</li>
