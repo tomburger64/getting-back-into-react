@@ -39,6 +39,7 @@ export default function StateMenu() {
     }
 
     return (
+        // looking back, idk why I chose to do this with li tags when I have button tags too
         <div className='w-full flex flex-col items-center justify-center gap-10 sm:flex-row'>
             <ul className="flex flex-col w-46 gap-5">
                 <button onClick={setPepperoni}><li className='w-full bg-blue-300 hover:bg-blue-200 p-3 rounded-lg text-center'>Pizza pepperoni</li></button>

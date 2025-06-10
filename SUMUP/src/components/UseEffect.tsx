@@ -23,11 +23,105 @@ export default function UseState(props:Props) {
                 </code>
             </div> <br />
 
-            <p className="text-white m-2 text-xl">That's when <code className="font-bold">useEffect</code> comes in.</p>
+            <p className="text-white m-2 text-xl">That's when <code className="font-bold">useEffect</code> comes in:</p>
 
             <div className='bg-gray-700 m-2'>
                 <code className="block text-white m-5 text-xl whitespace-pre overflow-x-auto break-keep">
-                {`<h1 className='font-bold text-xl text-white'>{pizza.pizza}</h1>`} <br />
+                {`useEffect(() => {
+    console.log('Hello')
+}, [])`} <br />
+                </code>
+            </div>
+
+            <p className="text-white m-2 text-xl">useEffect's value is an <code className="font-bold">anonymous arrow function</code>, which runs our <code>console.log()</code>, before mentioning some kind of empty array " <code>[]</code> ".</p> <br />
+            
+            <p className="text-white m-2 text-xl">Here's the dumb "hard-learn" thing to know: <code className="font-bold">useEffect</code> always has a function for it's value, usually an anon arrow function <i>(anon = anonymous)</i>, or functions. <br />
+            Meanwhile, the empty arrays "<code>[]</code>" are useEffect's key part. They actually mean when should the <code>console.log()</code> should be run.</p> <br />
+
+            <p className="text-white m-2 text-xl">There's 3 ways of using the arrays, which depicts every way you can use <code className="font-bold">useEffect</code>:</p> <br />
+            
+            <p className="text-white m-2 text-2xl font-bold">· First way:</p>
+            <div className='bg-gray-700 m-2'>
+                <code className="block text-white m-5 text-xl whitespace-pre overflow-x-auto break-keep">
+                {`// ↓ this is called "on mount", the code runs on the first render of the component only
+useEffect(() => {
+    console.log('Hello')
+}, [])`} <br />
+                </code>
+            </div> <br />
+
+            <p className="text-white m-2 text-2xl font-bold">· Second way:</p>
+            <div className='bg-gray-700 m-2'>
+                <code className="block text-white m-5 text-xl whitespace-pre overflow-x-auto break-keep">
+                {`// simple useState setup ↓
+// 2 buttons, one adds +1, the other decreases -1
+
+const [count, setCount] = useState(0)
+                
+function increase() {
+    setCount(prevCount => ++prevCount)
+}
+function decrease() {
+    setCount(prevCount => --prevCount)
+}
+
+// - - - - -
+
+// useEffect setup ↓
+// when count updates, logs 'Hello'
+
+useEffect(() => {
+    console.log('Hello')
+}, [count])
+
+return (
+    <>
+        <h1>{count}</h1>
+        <button onClick={increase}>+ increase 1</button>
+        <button onClick={decrease}>- decrease 1</button>
+    </>
+)`} <br />
+                </code>
+            </div> <br />
+
+            <p className="text-white m-2 text-xl">This code's a bit longer, so here's some more explaining: <br />
+            We have a basic count that adds 1 / decreases 1 when pressing a button. It works using useState. <br />
+            So in the <code>JSX</code>, there's buttons and a tag to show the count in.</p><br />
+
+            <p className="text-white m-2 text-xl">As for the <code>useEffect</code> part, it runs a <code>console.log()</code> every time <b>whatever's inside the array is updated</b>. Here, that concerns the <b>count state variable</b>.</p> <br />
+
+            <p className="text-white m-2 text-xl">What does an "update" really mean? <br />
+            it means everytime a component is rendered (page load, button that makes it appear, etc), and anytime it (literally) is updated by React. <br />
+            Here, since the count changes when a button is pressed and that it is displayed in the <code>JSX</code>, React updates it to match its value, so we don't see a value from the past.</p> <br />
+
+            <p className="text-white m-2 text-2xl font-bold">· Third way: <br />
+            <i className="text-sm font-normal">(rarely useful)</i></p>
+            <div className='bg-gray-700 m-2'>
+                <code className="block text-white m-5 text-xl whitespace-pre overflow-x-auto break-keep">
+                {`// ↓ runs on every render / update of the component
+// can easily create an infinite loop if not carefully used
+
+useEffect(() => {
+    console.log('Hello')
+})`} <br />
+                </code>
+            </div> <br />
+
+            <p className="text-white m-2 text-xl">Those are the <b>3</b> ways of using <code>useEffect</code>'s "magical" array <code>[]</code>.</p> <br />
+
+            <p className="text-white m-2 text-xl">Lastly, there's just <b>one more essential thing</b> that we need to know about useEffect. <br />
+            The "<code className="font-bold">cleanup</code>".</p> <br />
+
+            <p className="text-white m-2 text-xl">The <code className="font-bold">cleanup</code> is needed for something that happens in the background of React, that we don't see in our frontend page yet can really make it lag if never used. <br />
+            Let's approach it with an example:</p>
+
+            <div className='bg-gray-700 m-2'>
+                <code className="block text-white m-5 text-xl whitespace-pre overflow-x-auto break-keep">
+                {`// 
+
+useEffect(() => {
+    console.log('Hello')
+}), []`} <br />
                 </code>
             </div>
 
