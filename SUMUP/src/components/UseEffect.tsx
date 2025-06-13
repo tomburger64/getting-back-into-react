@@ -113,7 +113,28 @@ useEffect(() => {
             The "<code className="font-bold">cleanup</code>".</p> <br />
 
             <p className="text-white m-2 text-xl">The <code className="font-bold">cleanup</code> is needed for something that happens in the background of React, that we don't see in our frontend page yet can really make it lag if never used. <br />
-            Let's approach it with an example:</p>
+            More specifically, since <code className="font-bold">useEffect</code> basically runs code when a <b>component renders</b> (gets updated / "on mount"), if some component were to be something that updates a lot and can be stopped from updating itself by user interaction, <code>useEffect</code> can act like you're shooting your own foot.</p> <br />
+
+            <p className="text-white m-2 text-xl">Let's say we had a chrono component, that would update its time at every second. Let's say there was also a pause / resume button so that the user would be able to control the chrono. <br />
+            Stopping and resuming the chrono would work properly, but after a while everything would start to slow down and lag.</p> <br />
+
+            <p className="text-white m-2 text-xl">That's because there'd be several timers running at the same time. <br />
+            But how is that even possible?</p> <br />
+
+            <p className="text-white m-2 text-xl">Turns out, React behaves basically like this: <br /> <br />
+            - Dev : "Hey React, listen for this event." <br />
+            - React : <code>O.K.</code> <br />
+            - Dev : "Also listen to this one ! Even if its the same one !" <br />
+            - React : <code>O.K.</code> <br />
+            - Dev : "And this one too !" <br />
+            - React : <code>O.K.</code></p> <br />
+
+            <p className="text-white m-2 text-xl">At some point, it's not that React will forget, it's that <b>it literally *won't* forget</b> (it's not a human after all). That means your RAM (your PC's "short term" memory) will overload and cause lags, buffers, and might break the website on the browser. <br />
+            It's kind of like a loop that doesn't end.</p>
+
+            <p className="text-white m-2 text-xl">Let's make an example by coding it from scratch to explain this concept, as we'll be done with useEffect afterwards.</p>
+
+            <p className="text-white m-2 text-xl">let's make that chrono from earlier, which has a pause and resume button.</p>
 
             <div className='bg-gray-700 m-2'>
                 <code className="block text-white m-5 text-xl whitespace-pre overflow-x-auto break-keep">
